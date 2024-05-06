@@ -18,5 +18,5 @@ git clone https://github.com/nicholodominguez/shiftcare-cli-app.git
 ```
 
 Options:
-* -f FILENAME
+* `-f FILENAME`
   * This will use the json file supplied as data, otherwise it will resort to `clients.json` 
