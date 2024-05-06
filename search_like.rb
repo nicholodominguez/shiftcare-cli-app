@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require "./cli"
+require "./lib/cli"
 
-exit(Cli.run(ARGV))
+Cli.run(ARGV)

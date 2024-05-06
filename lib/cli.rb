@@ -11,9 +11,10 @@ class Cli
 
   def initialize(args)
     @options = {}
-
+    
     OptionParser.new do |args|
       args.on("-f", "--file FILENAME", "Filename to be read") do |value|
+        p value
         @options[:file_name] = value
       end
 
@@ -24,6 +25,11 @@ class Cli
     end.parse!
 
     filename = @options[:file_name].nil? ? "clients.json" : @options[:file_name]
+    
+    if !File.exist?(filename)
+      p "here"
+      raise StandardError 
+    end
 
     file = File.read(filename)
     @data = JSON.parse(file)
@@ -35,7 +41,7 @@ class Cli
 
     ===================================================================================================
     Commands:
-    - search [STRING]: Searches the dataset with records containing STRING in their full_name
+    - search STRING: Searches the dataset with records containing STRING in their full_name
     - find_dup: Returns records with duplicate emails
     ===================================================================================================
 
